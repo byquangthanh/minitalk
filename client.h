@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sixshooterx <sixshooterx@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 17:51:25 by sixshooterx       #+#    #+#             */
-/*   Updated: 2024/03/04 16:11:09 by sixshooterx      ###   ########.fr       */
+/*   Created: 2024/03/04 15:54:42 by sixshooterx       #+#    #+#             */
+/*   Updated: 2024/03/04 16:04:06 by sixshooterx      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "client.h"
+#ifndef CLIENT_H
+# define CLIENT_H
+# include <stdio.h>
+# include <stdlib.h>
 
-int	main(void)
-{
-	ft_printf("Hello, World!\n");
-	return (0);
-}
+#endif
