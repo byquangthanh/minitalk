@@ -12,11 +12,11 @@ $(LIBFT):
 $(FT_PRINTF):
 	$(MAKE) -C $(FT_PRINTF_DIR)
 
-server: server.o $(LIBFT)
-	$(CC) $(CFLAGS) -o server server.o -L$(LIBFT_DIR) -lft
+server: server.o $(LIBFT) $(FT_PRINTF)
+	$(CC) $(CFLAGS) -o server server.o -L$(LIBFT_DIR) -L$(FT_PRINTF_DIR) -lft -lftprintf
 
-client: client.o $(LIBFT)
-	$(CC) $(CFLAGS) -o client client.o -L$(LIBFT_DIR) -lft
+client: client.o $(LIBFT) $(FT_PRINTF)
+	$(CC) $(CFLAGS) -o client client.o -L$(LIBFT_DIR) -L$(FT_PRINTF_DIR) -lft -lftprintf
 
 server.o: server.c
 	$(CC) $(CFLAGS) -c server.c
@@ -26,10 +26,12 @@ client.o: client.c
 
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(FT_PRINTF_DIR) clean
 	rm -f server.o client.o
 
 fclean: clean
 	$(MAKE) -C $(LIBFT_DIR) fclean
+	$(MAKE) -C $(FT_PRINTF_DIR) fclean
 	rm -f server client
 
 re: fclean all

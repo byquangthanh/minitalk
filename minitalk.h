@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.h                                           :+:      :+:    :+:   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sixshooterx <sixshooterx@student.42.fr>    +#+  +:+       +#+        */
+/*   By: quanguye <quanguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:54:42 by sixshooterx       #+#    #+#             */
-/*   Updated: 2024/03/04 16:04:06 by sixshooterx      ###   ########.fr       */
+/*   Updated: 2024/03/05 17:00:31 by quanguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLIENT_H
-# define CLIENT_H
+#ifndef MINITALK_H
+# define MINITALK_H
 # include <stdio.h>
 # include <stdlib.h>
+
+int	ft_printf(const char *format, ...);
 
 #endif
