@@ -6,7 +6,7 @@
 /*   By: quanguye <quanguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:54:42 by sixshooterx       #+#    #+#             */
-/*   Updated: 2024/03/05 17:00:31 by quanguye         ###   ########.fr       */
+/*   Updated: 2024/03/11 14:58:06 by quanguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 # define MINITALK_H
 # include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
+# include <signal.h>
 
 int	ft_printf(const char *format, ...);
+int	ft_atoi(const char *str);
 
 #endif
