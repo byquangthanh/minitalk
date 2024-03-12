@@ -6,39 +6,19 @@
 /*   By: quanguye <quanguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:51:45 by sixshooterx       #+#    #+#             */
-/*   Updated: 2024/03/11 15:10:35 by quanguye         ###   ########.fr       */
+/*   Updated: 2024/03/12 13:41:20 by quanguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <signal.h>
-/*
-The logic of the server is as follows:
-1. We need to get the server's PID
-2. Print the server's PID
-3. Wait for the message from the client
-4. Print the message, must be quick (1sec for 100 chars is too much)
 
-Features:
-- The server must be able to handle multiple clients
-- Unix signals
-- Two signals: SIGUSR1 and SIGUSR2
-
-Functions we need:
-- signal()
-- getpid()
-- pause()
-- write()
-- usleep()
-- kill()
-- ft_printf()
-*/
 void	receive_signal(int sig, siginfo_t *info, void *ucontext)
 {
 	static int	letter;
 	static int	i;
+	pid_t		client_pid;
 
-	(void)info;
+	client_pid = info->si_pid;
 	(void)ucontext;
 	if (sig == SIGUSR1)
 		letter |= (1 << i);
@@ -51,7 +31,16 @@ void	receive_signal(int sig, siginfo_t *info, void *ucontext)
 		i = 0;
 		letter = 0;
 	}
+	kill(client_pid, SIGUSR2);
 }
+
+/*
+@line 50: We want to receive additional information about the signal
+		  Thanks to this, we can get the PID of the client, which sent the signal
+@line 51: We use receive_signal as the signal handler
+@line 52: Intitialize the signal set sa_mask to empty
+sa_mask specifies a set of signals that should be blocked during the execution
+*/
 
 int	main(void)
 {
